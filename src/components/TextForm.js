@@ -41,6 +41,12 @@ const handleCapClick = ()=>{
     let wordInParagraph = Words.join(' ');
     setText(wordInParagraph);
 }
+const handleCtcClick = ()=>{
+    let text = document.getElementById('myBox');
+    text.select();
+    navigator.clipboard.writeText(text.value);
+    alert("Your text is copied successfully. ")
+}
 const handleOnChange = (event) =>{
     //console.log("onchange");
     setText(event.target.value);
@@ -57,6 +63,7 @@ const [text, setText] = useState('Enter your text');
         <button className="btn btn-success mx-2" onClick={handleLowClick}>Lower case</button>
         <button className="btn btn-success mx-2" onClick={handleSenClick}>Sentence case</button>
         <button className="btn btn-success mx-2" onClick={handleCapClick}>Capitalized case</button>
+        <button className="btn btn-success mx-2" onClick={handleCtcClick}>Copy to Clipboard</button>
         <button className="btn btn-success mx-2" onClick={handleClrClick}>Clear</button>
 
     </div>
