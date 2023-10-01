@@ -21,6 +21,7 @@ export default function About() {
             });
             setBtnText('Enable Dark Mode');
         }
+        
     }
     
   return (
