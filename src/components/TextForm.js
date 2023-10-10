@@ -51,13 +51,13 @@ const handleOnChange = (event) =>{
     //console.log("onchange");
     setText(event.target.value);
 }
-const [text, setText] = useState('Enter your text');
+const [text, setText] = useState('');
   return (
     <>
-    <div className='container'>
+    <div className='container' style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
         <h1>{props.headline}</h1>
         <div className="mb-3">
-            <textarea className="form-control" id="myBox" onChange={handleOnChange} value={text} rows="8"></textarea>
+            <textarea className="form-control" id="myBox" onChange={handleOnChange} value={text} style={{backgroundColor: props.mode === 'dark' ? '#a2b5a3' : 'white', color: props.mode === 'dark' ? 'white' : 'black'}} rows="8"></textarea>
         </div>
         <button className="btn btn-success mx-2" onClick={handleUpClick}>Upper case</button>
         <button className="btn btn-success mx-2" onClick={handleLowClick}>Lower case</button>
@@ -67,12 +67,12 @@ const [text, setText] = useState('Enter your text');
         <button className="btn btn-success mx-2" onClick={handleClrClick}>Clear</button>
 
     </div>
-    <div className='container mt-5'>
+    <div className='container mt-5' style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
         <h1>Your text summary</h1>
         <p>{(text !== '') ? text.split(' ').length : 0} Words, {text.length} characters.</p>
         <p>Needs {0.008 * text.split(' ').length} minutes to read.</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:'Enter something in above text box to preview it here.'}</p>
     </div>
     </>
   )
